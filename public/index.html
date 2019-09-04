@@ -30,7 +30,7 @@
                         <option selected>Русский</option>
                     </select>
                 </div>
-                <p class="widget__text">Зашифрованное сообщение: <span class="widget__result encryption__result"></span>
+                <p class="widget__text">Зашифрованное сообщение: <span class="widget__result caesar-encryption__result"></span>
                 </p>
             </div>
             <div class="widget caesar-decryption">
@@ -46,24 +46,23 @@
                         <option selected>Русский</option>
                     </select>
                 </div>
-                <p class="widget__text">Расшифрованное сообщение: <span
-                        class="widget__result decryption__result"></span></p>
+                <p class="widget__text">Расшифрованное сообщение: <span class="widget__result caesar-decryption__result"></span></p>
             </div>
             <div class="widget caesar-bruteforce">
                 <p class="widget__text">Дешифрование методом Цезаря без знания величины сдвига с помощью перебора</p>
                 <div class="widget__form">
-                    <label class="form__label" for="caesar-decryption-text">Зашифрованный текст </label>
-                    <textarea id="caesar-decryption-text" class="widget__input"></textarea>
-                    <label class="form__label" for="caesar-decryption-shift">Величина сдвига </label>
-                    <input id="caesar-decryption-shift" value="3" type="number" class="widget__input" />
-                    <label class="form__label" for="caesar-decryption-language">Язык </label>
-                    <select id="caesar-decryption-language">
+                    <label class="form__label" for="caesar-bruteforce-text">Зашифрованный текст </label>
+                    <textarea id="caesar-bruteforce-text" class="widget__input"></textarea>
+                    <label class="form__label" for="caesar-bruteforce-language">Язык </label>
+                    <select id="caesar-bruteforce-language">
                         <option selected>Русский</option>
                     </select>
                 </div>
-                <p class="widget__text">Расшифрованное сообщение: <span
-                        class="widget__result decryption__result"></span></p>
+                <div class="caesar-bruteforce__result"></div>
             </div>
+        </div>
+        <div class="footer">
+            Maxim Gasai &copy; 2019
         </div>
     </div>
 
