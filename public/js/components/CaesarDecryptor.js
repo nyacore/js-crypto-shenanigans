@@ -2,11 +2,11 @@ import {
     caesarEncrypt
 } from '../lib/algorithms.js';
 
-export default class CaesarEncryptor {
+export default class CaesarDecryptor {
     constructor() {
-        this.inputTextEl = document.querySelector('#caesar-encryption-text');
-        this.shiftEl = document.querySelector('#caesar-encryption-shift');
-        this.resultEl = document.querySelector('.encryption__result');
+        this.inputTextEl = document.querySelector('#caesar-decryption-text');
+        this.shiftEl = document.querySelector('#caesar-decryption-shift');
+        this.resultEl = document.querySelector('.decryption__result');
 
         this.bindListeners();
     }
@@ -14,25 +14,25 @@ export default class CaesarEncryptor {
     bindListeners() {
         this.inputTextEl.addEventListener('keyup', async () => {
             this.setInputText(this.getInputText().toLowerCase());
-            this.encrypt();
+            this.decrypt();
         });
 
         this.inputTextEl.addEventListener('change', async () => {
             this.setInputText(this.getInputText().toLowerCase());
-            this.encrypt();
+            this.decrypt();
         });
 
         this.shiftEl.addEventListener('change', async () => {
-            this.encrypt();
+            this.decrypt();
         });
 
         this.shiftEl.addEventListener('keyup', async () => {
-            this.encrypt();
+            this.decrypt();
         });
     }
 
-    async encrypt() {
-        const output = await caesarEncrypt(this.getInputText(), this.getShift());
+    async decrypt() {
+        const output = await caesarEncrypt(this.getInputText(), this.getShift(), true);
         this.setResult(output);
     }
 
