@@ -1,32 +1,34 @@
-import {
-  loadJSON
-} from '../lib/utils.js';
+import { russianAlphabet } from "../app.js";
 
 /**
- * 
+ *
  * @param {String} text Input string
  * @param {String} shift Shift value
  * @param {Boolean} decrypt If the message should be decrypted instead of default behavior
  * @returns {String} Encrypted string
  */
-export async function caesarEncrypt(text, shift = 0, decrypt = false, lang = "russian") {
+export async function caesarEncrypt(
+  text,
+  shift = 0,
+  decrypt = false,
+  lang = "russian"
+) {
   let result = "";
 
   /**
    * @type {Array<String>}
    */
-  const alphabet = (await loadJSON('/public/js/lib/alphabets.json'))[lang];
 
-  text.split('').forEach((e) => {
-    if (['.', ',', ' ', '?', '!'].includes(e)) {
+  text.split("").forEach(e => {
+    if ([".", ",", " ", "?", "!"].includes(e)) {
       result += e;
     } else {
       let index;
       if (decrypt) {
-        index = alphabet.indexOf(e) - (+shift) % alphabet.length;
-        if (index < 0) index = alphabet.length + index;
+        index = russianAlphabet.indexOf(e) - (+shift % russianAlphabet.length);
+        if (index < 0) index = russianAlphabet.length + index;
       } else {
-        index = (alphabet.indexOf(e) + (+shift)) % alphabet.length;
+        index = (russianAlphabet.indexOf(e) + +shift) % russianAlphabet.length;
       }
       result += alphabet[index];
     }
