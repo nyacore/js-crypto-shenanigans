@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1 class="header__title">Шифр Цезаря и Виженера</h1>
+        </div>
+        <div class="app">
+            <div class="widget caesar-encryption">
+                <p class="widget__text">Шифрование методом Цезаря сдвигом нормативного алфавита на определенное число позиций</p>
+                <div class="widget__form">
+                    <label class="form__label" for="caesar-encryption-text">Текст </label>
+                    <textarea id="caesar-encryption-text" class="widget__input"></textarea>
+                    <label class="form__label" for="caesar-encryption-shift">Величина сдвига </label>
+                    <input id="caesar-encryption-shift" value="3" type="number" class="widget__input" />
+                </div>
+                <p class="widget__text">Зашифрованное сообщение: <span class="widget__result">Ышщопшмч</span></p>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="/public/js/app.js"></script>
+</body>
+
+</html>
