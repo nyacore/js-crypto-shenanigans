@@ -9,7 +9,7 @@
 }
 
 .wrapper {
-  background: #666;
+  background: #214750;
   height: 100vh;
   overflow-x: hidden;
 }
@@ -21,7 +21,7 @@
 
 .header .header__title {
   text-align: center;
-  color: #fff;
+  color: #9DADB1;
 }
 
 .app {
@@ -31,18 +31,19 @@
 }
 
 .widget {
-  padding: 5px;
+  padding: 7px 7px;
   margin: 5px;
   max-width: 500px;
   min-width: 150px;
-  background: #ffffff;
-  max-height: 300px;
-  overflow-y: scroll;
+  background: #365B64;
+  max-height: 310px;
+  overflow: hidden;
+  color: #9DADB1;
 }
 
 .widget .widget__form {
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 40% 60%;
   grid-row-gap: 10px;
   margin: 10px 0;
 }
@@ -52,8 +53,20 @@
   padding-right: 10px;
 }
 
+.widget__input {
+  color: #9DADB1;
+  background: #4E7077;
+  border: none;
+}
+
 .widget .widget__input[type="number"] {
   width: 3em;
+}
+
+.caesar-bruteforce__result {
+  padding: 5px;
+  overflow-y: scroll;
+  max-height: 180px;
 }
 
 .footer {

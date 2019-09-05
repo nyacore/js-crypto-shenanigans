@@ -1,5 +1,7 @@
-import { russianAlphabet } from "../app.js";
-
+// import {
+//   russianAlphabet
+// } from "../app.js";
+// const alphabet = russianAlphabet;
 /**
  *
  * @param {String} text Input string
@@ -11,7 +13,7 @@ export async function caesarEncrypt(
   text,
   shift = 0,
   decrypt = false,
-  lang = "russian"
+  alphabet
 ) {
   let result = "";
 
@@ -25,10 +27,10 @@ export async function caesarEncrypt(
     } else {
       let index;
       if (decrypt) {
-        index = russianAlphabet.indexOf(e) - (+shift % russianAlphabet.length);
-        if (index < 0) index = russianAlphabet.length + index;
+        index = alphabet.indexOf(e) - (+shift % alphabet.length);
+        if (index < 0) index = alphabet.length + index;
       } else {
-        index = (russianAlphabet.indexOf(e) + +shift) % russianAlphabet.length;
+        index = (alphabet.indexOf(e) + +shift) % alphabet.length;
       }
       result += alphabet[index];
     }

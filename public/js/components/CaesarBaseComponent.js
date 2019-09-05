@@ -8,11 +8,12 @@ export default class CaesarBaseComponent {
      * @param {HTMLElement} outputElement
      * @param {HTMLInputElement} shiftElement
      */
-    constructor(inputElement, outputElement, shiftElement, bindListeners = true, decrypt = false) {
+    constructor(inputElement, outputElement, shiftElement, alphabet, bindListeners = true, decrypt = false) {
         this.inputTextEl = document.querySelector(inputElement);
         this.resultEl = document.querySelector(outputElement);
         if (shiftElement) this.shiftEl = document.querySelector(shiftElement);
 
+        this.alphabet = alphabet;
         this.decrypt = decrypt;
 
         if (bindListeners) this.bindListeners();
@@ -29,7 +30,7 @@ export default class CaesarBaseComponent {
     async selectAction() {
         this.setInputText(this.getInputText().toLowerCase());
 
-        const result = await caesarEncrypt(this.getInputText(), this.getShift(), this.decrypt);
+        const result = await caesarEncrypt(this.getInputText(), this.getShift(), this.decrypt, this.alphabet);
         this.setResult(result);
     }
 
