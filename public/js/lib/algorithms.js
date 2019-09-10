@@ -1,3 +1,7 @@
+import {
+  buildViegenereTable
+} from './utils.js';
+
 // import {
 //   russianAlphabet
 // } from "../app.js";
@@ -35,5 +39,33 @@ export async function caesarEncrypt(
       result += alphabet[index];
     }
   });
+  return result;
+}
+
+export async function viegenereEncrypt(text, key, decrypt = false, alphabet) {
+  if (key.length > text.length) {
+    return '';
+  }
+
+  const table = await buildViegenereTable(alphabet);
+
+  let index = 0;
+  let newKey = key;
+  while (newKey.length < text.length) {
+    newKey += key[index++ % key.length];
+  }
+
+  let result = '';
+  newKey.split('').forEach((e, index) => {
+    const keyIndex = alphabet.indexOf(e);
+    const inputIndex = alphabet.indexOf(text[index]);
+
+    if (decrypt) {
+      result += table[keyIndex][inputIndex];
+    } else {
+      result +=
+    }
+  });
+
   return result;
 }

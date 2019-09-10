@@ -2,12 +2,20 @@ import CaesarBaseComponent from "./components/CaesarBaseComponent.js";
 import CaesarBruteForceComponent from "./components/CaesarBruteForceComponent.js";
 
 import {
-  loadJSON
+  loadJSON,
+  buildViegenereTable
 } from "./lib/utils.js";
+
+import {
+  viegenereEncrypt
+} from './lib/algorithms.js';
 
 
 window.onload = async () => {
-  const russianAlphabet = (await loadJSON("/public/js/lib/alphabets.json"))["russian"];
+  const alphabets = await loadJSON("/public/js/lib/alphabets.json");
+  const russianAlphabet = alphabets["russian"];
+  const englishAlphabet = alphabets["english"];
+  console.log(await viegenereEncrypt('attackatdawn', 'lemon', false, englishAlphabet));
 
   new CaesarBaseComponent(
     "#caesar-encryption-text",
