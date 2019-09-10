@@ -16,6 +16,9 @@ export async function loadJSON(url) {
     return response.json();
 }
 
+/**
+ * @param {Array<String>} alphabet Used alphabet
+ */
 export async function buildViegenereTable(alphabet) {
     let result = [];
 

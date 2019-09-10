@@ -22,43 +22,80 @@
                     позиций</p>
                 <div class="widget__form">
                     <label class="form__label" for="caesar-encryption-text">Текст </label>
-                    <textarea id="caesar-encryption-text" class="widget__input"></textarea>
+                    <textarea id="caesar-encryption-text" class="widget__input input-text"></textarea>
                     <label class="form__label" for="caesar-encryption-shift">Величина сдвига </label>
-                    <input id="caesar-encryption-shift" value="3" type="number" class="widget__input" />
+                    <input id="caesar-encryption-shift" value="3" type="number" class="widget__input input-key" />
                     <label class="form__label" for="caesar-encryption-language">Язык </label>
-                    <select class="widget__input" id="caesar-encryption-language">
-                        <option selected>Русский</option>
+                    <select class="widget__input input-language" id="caesar-encryption-language">
+                        <option value="russian" selected>Русский</option>
+                        <option value="english">Английский</option>
                     </select>
                 </div>
-                <p class="widget__text">Зашифрованное сообщение: <span class="widget__result caesar-encryption__result"></span>
+                <p class="widget__text">Зашифрованное сообщение: <span class="widget__result encryption-result"></span>
                 </p>
             </div>
             <div class="widget caesar-decryption">
                 <p class="widget__text">Дешифрование методом Цезаря сдвигом нормативного алфавита на определенное число
                     позиций</p>
                 <div class="widget__form">
-                    <label class="form__label" for="caesar-decryption-text">Зашифрованный текст </label>
-                    <textarea id="caesar-decryption-text" class="widget__input"></textarea>
-                    <label class="form__label" for="caesar-decryption-shift">Величина сдвига </label>
-                    <input id="caesar-decryption-shift" value="3" type="number" class="widget__input" />
-                    <label class="form__label" for="caesar-decryption-language">Язык </label>
-                    <select class="widget__input" id="caesar-decryption-language">
-                        <option selected>Русский</option>
+                    <label class="form__label" for="caesar-encryption-text">Текст </label>
+                    <textarea id="caesar-encryption-text" class="widget__input input-text"></textarea>
+                    <label class="form__label" for="caesar-encryption-shift">Величина сдвига </label>
+                    <input id="caesar-encryption-shift" value="3" type="number" class="widget__input input-key" />
+                    <label class="form__label" for="caesar-encryption-language">Язык </label>
+                    <select class="widget__input input-language" id="caesar-encryption-language">
+                        <option value="russian" selected>Русский</option>
+                        <option value="english">Английский</option>
                     </select>
                 </div>
-                <p class="widget__text">Расшифрованное сообщение: <span class="widget__result caesar-decryption__result"></span></p>
+                <p class="widget__text">Расшифрованное сообщение: <span class="widget__result encryption-result"></span></p>
             </div>
             <div class="widget caesar-bruteforce">
                 <p class="widget__text">Дешифрование методом Цезаря без знания величины сдвига с помощью перебора</p>
                 <div class="widget__form">
-                    <label class="form__label" for="caesar-bruteforce-text">Зашифрованный текст </label>
-                    <textarea id="caesar-bruteforce-text" class="widget__input"></textarea>
-                    <label class="form__label" for="caesar-bruteforce-language">Язык </label>
-                    <select class="widget__input" id="caesar-bruteforce-language">
-                        <option selected>Русский</option>
+                    <label class="form__label" for="caesar-encryption-text">Текст </label>
+                    <textarea id="caesar-encryption-text" class="widget__input input-text"></textarea>
+                    <label class="form__label" for="caesar-encryption-shift">Величина сдвига </label>
+                    <input id="caesar-encryption-shift" value="3" type="number" class="widget__input input-key" />
+                    <label class="form__label" for="caesar-encryption-language">Язык </label>
+                    <select class="widget__input input-language" id="caesar-encryption-language">
+                        <option value="russian" selected>Русский</option>
+                        <option value="english">Английский</option>
                     </select>
                 </div>
-                <div class="caesar-bruteforce__result"></div>
+                <div class="caesar-bruteforce__result encryption-result"></div>
+            </div>
+            <div class="widget viegener-encryption">
+                <p class="widget__text">Шифрование методом Виженера используя n<sup>2</sup> сдвигов Цезаря, где n - мощность алфавита</p>
+                <div class="widget__form">
+                    <label class="form__label" for="caesar-encryption-text">Текст </label>
+                    <textarea id="caesar-encryption-text" class="widget__input input-text"></textarea>
+                    <label class="form__label" for="caesar-encryption-shift">Ключ </label>
+                    <input id="caesar-encryption-shift" value="лимон" type="text" class="widget__input input-key" />
+                    <label class="form__label" for="caesar-encryption-language">Язык </label>
+                    <select class="widget__input input-language" id="caesar-encryption-language">
+                        <option value="russian" selected>Русский</option>
+                        <option value="english">Английский</option>
+                    </select>
+                </div>
+                <p class="widget__text">Зашифрованное сообщение: <span class="widget__result encryption-result"></span>
+                </p>
+            </div>
+            <div class="widget viegener-decryption">
+                <p class="widget__text">Дешифрование методом Виженера используя n<sup>2</sup> сдвигов Цезаря, где n - мощность алфавита</p>
+                <div class="widget__form">
+                    <label class="form__label" for="caesar-encryption-text">Текст </label>
+                    <textarea id="caesar-encryption-text" class="widget__input input-text"></textarea>
+                    <label class="form__label" for="caesar-encryption-shift">Ключ </label>
+                    <input id="caesar-encryption-shift" value="лимон" type="text" class="widget__input input-key" />
+                    <label class="form__label" for="caesar-encryption-language">Язык </label>
+                    <select class="widget__input input-language" id="caesar-encryption-language">
+                        <option value="russian" selected>Русский</option>
+                        <option value="english">Английский</option>
+                    </select>
+                </div>
+                <p class="widget__text">Расшифрованное сообщение: <span class="widget__result encryption-result"></span>
+                </p>
             </div>
         </div>
         <!-- <div class="footer">

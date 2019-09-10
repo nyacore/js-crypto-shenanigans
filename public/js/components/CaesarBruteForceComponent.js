@@ -1,50 +1,49 @@
-import CaesarBaseComponent from "./CaesarBaseComponent.js";
-import {
-    caesarEncrypt
-} from "../lib/algorithms.js";
+import BaseComponent from "./BaseComponent.js";
 
-export default class CaesarBruteForceComponent extends CaesarBaseComponent {
-    /**
-     * @param {HTMLInputElement} inputElement
-     * @param {HTMLElement} outputElement
-     */
-    constructor(inputElement, outputElement, alphabet) {
-        super(inputElement, outputElement, null, alphabet, false);
+export default class CaesarBruteForceComponent extends BaseComponent {
+    constructor(container, action) {
+        super(container, action, false, true);
 
         this.results = [];
         this.bindListeners();
     }
 
     bindListeners() {
-        this.inputTextEl.addEventListener("keyup", this.bruteforce.bind(this));
-        this.inputTextEl.addEventListener("change", this.bruteforce.bind(this));
+        this.inputElement.addEventListener("keyup", this.bruteforce.bind(this));
+        this.inputElement.addEventListener("change", this.bruteforce.bind(this));
+
+        this.languageElement.addEventListener("change", this.changeLanguage.bind(this));
+    }
+
+    changeLanguage() {
+        this.loadLanguage();
+        setTimeout(() => {
+            console.log(this.language);
+            this.bruteforce();
+        }, 200);
     }
 
     bruteforce() {
         if (this.getInputText().length) {
             this.clearResult();
-            this.results.splice(0, this.results.length);
-            this.resultEl.html = "";
-            [...Array(32).keys()].forEach(async e => {
-                const result = await caesarEncrypt(this.getInputText(), e + 1, true, this.alphabet);
+            [...Array(this.language.alphabet.length - 1).keys()].forEach(e => {
+                const result = this.action(this.getInputText(), e + 1, true, this.language);
                 this.results.push(`mod ${e + 1}: ${result}`);
             });
-            setTimeout(() => {
-                this.setResult();
-            }, 0);
+            this.setOutputText();
         }
     }
 
     clearResult() {
-        this.resultEl.innerHTML = "";
+        this.outputElement.innerHTML = "";
         this.results = [];
     }
 
-    setResult() {
+    setOutputText() {
         this.results.forEach(e => {
             const el = document.createElement("p");
             el.innerText = e;
-            this.resultEl.appendChild(el);
+            this.outputElement.appendChild(el);
         });
     }
 }

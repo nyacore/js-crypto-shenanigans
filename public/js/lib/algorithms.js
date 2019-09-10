@@ -1,27 +1,21 @@
-import {
-    buildViegenereTable
-} from './utils.js';
-
 /**
  *
  * @param {String} text Input string
  * @param {String} shift Shift value
  * @param {Boolean} decrypt If the message should be decrypted instead of default behavior
+ * @param {Array<String>} alphabet Used alphabet
  * @returns {String} Encrypted string
+ * 
  */
-export async function caesarEncrypt(
-    text,
-    shift = 0,
-    decrypt = false,
-    alphabet
-) {
+export function caesarEncrypt(text, shift, decrypt, { alphabet }) {
     let result = "";
 
-    /**
-     * @type {Array<String>}
-     */
-
     text.split("").forEach(e => {
+        if (alphabet.indexOf(e) == -1) {
+            result = 'Выбран неверный алфавит либо в сообщении чередуются раскладки';
+            return;
+        }
+
         if ([".", ",", " ", "?", "!"].includes(e)) {
             result += e;
         } else {
@@ -38,12 +32,26 @@ export async function caesarEncrypt(
     return result;
 }
 
-export async function viegenereEncrypt(text, key, decrypt = false, alphabet) {
-    if (key.length > text.length) {
-        return '';
+/**
+ * @param {String} text Input string
+ * @param {String} key Salt
+ * @param {Boolean} decrypt If the message should be decrypted instead of default behavior
+ * @param {Array<String>} alphabet Used alphabet
+ * @returns {String} Encrypted string
+ */
+export function viegenereEncrypt(text, key, decrypt, { alphabet, table }) {
+
+    if (key.indexOf(' ') != -1 || text.indexOf(' ') != -1) {
+        return 'Ни ключ, ни сообщение не должны содержать пробелы'
     }
 
-    const table = await buildViegenereTable(alphabet);
+    if (!key.length) {
+        return 'Ключ не может быть пустым';
+    }
+
+    if (key.length > text.length) {
+        return 'Ключ не может быть длиннее сообщения';
+    }
 
     let index = 0;
     let newKey = key;
@@ -55,11 +63,15 @@ export async function viegenereEncrypt(text, key, decrypt = false, alphabet) {
     newKey.split('').forEach((e, index) => {
         const keyIndex = alphabet.indexOf(e);
         const inputIndex = alphabet.indexOf(text[index]);
+        if (keyIndex == -1 || inputIndex == -1) {
+            result = 'Выбран неверный алфавит либо в сообщении чередуются раскладки';
+            return;
+        }
 
         if (decrypt) {
-            result += table[keyIndex][inputIndex];
+            result += alphabet[table[keyIndex].indexOf(text[index])];
         } else {
-            // result +=
+            result += table[keyIndex][inputIndex];
         }
     });
 

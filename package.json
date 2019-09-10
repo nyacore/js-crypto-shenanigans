@@ -1,23 +1,22 @@
 {
-  "name": "cryptoshenanigans",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "live-server --port=3000 --no-browser --entry-file=public/index.html"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nyacore/js-crypto-shenanigans.git"
-  },
-  "author": "nyacore",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nyacore/js-crypto-shenanigans/issues"
-  },
-  "homepage": "https://github.com/nyacore/js-crypto-shenanigans#readme",
-  "dependencies": {
-    "live-server": "^1.2.1"
-  }
+    "name": "cryptoshenanigans",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "serve": "live-server --port=3000 --no-browser --entry-file=public/index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nyacore/js-crypto-shenanigans.git"
+    },
+    "author": "nyacore",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/nyacore/js-crypto-shenanigans/issues"
+    },
+    "homepage": "https://github.com/nyacore/js-crypto-shenanigans#readme",
+    "dependencies": {
+        "live-server": "^1.2.1"
+    }
 }
