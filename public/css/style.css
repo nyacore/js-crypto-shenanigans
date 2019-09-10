@@ -3,76 +3,76 @@
 } */
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
 }
 
 .wrapper {
-  background: #214750;
-  height: 100vh;
-  overflow-x: hidden;
+    background: #214750;
+    height: 100vh;
+    overflow-x: hidden;
 }
 
 .header {
-  width: 100%;
-  padding: 5px;
+    width: 100%;
+    padding: 5px;
 }
 
 .header .header__title {
-  text-align: center;
-  color: #9DADB1;
+    text-align: center;
+    color: #9DADB1;
 }
 
 .app {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .widget {
-  padding: 7px 7px;
-  margin: 5px;
-  max-width: 500px;
-  min-width: 150px;
-  background: #365B64;
-  max-height: 310px;
-  overflow: hidden;
-  color: #9DADB1;
+    padding: 7px 7px;
+    margin: 5px;
+    max-width: 500px;
+    min-width: 150px;
+    background: #365B64;
+    max-height: 310px;
+    overflow: hidden;
+    color: #9DADB1;
 }
 
 .widget .widget__form {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  grid-row-gap: 10px;
-  margin: 10px 0;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-row-gap: 10px;
+    margin: 10px 0;
 }
 
 .widget .widget__form .form__label {
-  text-align: right;
-  padding-right: 10px;
+    text-align: right;
+    padding-right: 10px;
 }
 
 .widget__input {
-  color: #9DADB1;
-  background: #4E7077;
-  border: none;
+    color: #9DADB1;
+    background: #4E7077;
+    border: none;
 }
 
 .widget .widget__input[type="number"] {
-  width: 3em;
+    width: 3em;
 }
 
 .caesar-bruteforce__result {
-  padding: 5px;
-  overflow-y: scroll;
-  max-height: 180px;
+    padding: 5px;
+    overflow-y: scroll;
+    max-height: 180px;
 }
 
 .footer {
-  position: absolute;
-  height: 20px;
-  top: calc(100% - 20px);
-  text-align: center;
-  width: 100%;
+    position: absolute;
+    height: 20px;
+    top: calc(100% - 20px);
+    text-align: center;
+    width: 100%;
 }
