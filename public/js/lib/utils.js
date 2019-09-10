@@ -1,6 +1,4 @@
-import {
-    caesarEncrypt
-} from './algorithms.js';
+import { caesarEncrypt } from './algorithms.js';
 
 /**
  * 
@@ -19,13 +17,13 @@ export async function loadJSON(url) {
 /**
  * @param {Array<String>} alphabet Used alphabet
  */
-export async function buildViegenereTable(alphabet) {
+export function buildViegenereTable({ alphabet }) {
     let result = [];
 
     for (let i = 0; i < alphabet.length; i++) {
         let row = [];
         for (let j = 0; j < alphabet.length; j++) {
-            row.push(await caesarEncrypt(alphabet[j], i, false, alphabet));
+            row.push(caesarEncrypt(alphabet[j], i, false, { alphabet }));
         }
         result.push(row);
     }
