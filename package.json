@@ -4,7 +4,8 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-        "serve": "live-server --port=3000 --no-browser --entry-file=public/index.html"
+        "serve": "live-server --port=3000 --no-browser --entry-file=public/index.html",
+        "build": "echo 'do nothing'"
     },
     "repository": {
         "type": "git",
