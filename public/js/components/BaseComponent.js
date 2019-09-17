@@ -1,4 +1,6 @@
-import { loadJSON } from '../lib/utils.js';
+import {
+    loadJSON
+} from '../lib/utils.js';
 
 export default class BaseComponent {
     constructor(container, action, bindListeners = true, decrypt = false) {
@@ -46,59 +48,59 @@ export default class BaseComponent {
 
     loadLanguage() {
         loadJSON('/public/js/lib/alphabets.json').then(language => {
-            this.language = language[this.getLanguage()];
+            this.language = language[this.language];
             this.processAction();
         })
     }
 
     processAction() {
-        this.setInputText(this.getInputText().toLowerCase());
+        this.input(this.input().toLowerCase());
 
-        const result = this.action(this.getInputText(), this.getKey(), this.decrypt, this.language);
-        this.setOutputText(result);
+        const result = this.action(this.input(), this.key, this.decrypt, this.language);
+        this.output(result);
     }
 
-    getInputText() {
+    get input() {
         return this.inputElement.value;
     }
 
-    getKey() {
+    get key() {
         return this.keyElement.value;
     }
 
-    getResult() {
+    get result() {
         return this.outputElement.innerText;
     }
 
-    getLanguage() {
+    get language() {
         return this.languageElement.value;
     }
 
     /**
      * @param {String} text
      */
-    setInputText(text) {
+    set input(text) {
         this.inputElement.value = text;
     }
 
     /**
      * @param {String} text
      */
-    setOutputText(text) {
+    set output(text) {
         this.outputElement.innerText = text;
     }
 
     /**
      * @param {String} text
      */
-    setKey(text) {
+    set key(text) {
         this.keyElement.value = text;
     }
 
     /**
      * @param {String} text
      */
-    setLanguage(text) {
+    set language(text) {
         this.languageElement.value = text;
     }
 }
