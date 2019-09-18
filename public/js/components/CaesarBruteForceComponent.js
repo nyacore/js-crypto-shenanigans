@@ -15,30 +15,28 @@ export default class CaesarBruteForceComponent extends BaseComponent {
         this.languageElement.addEventListener('change', this.changeLanguage.bind(this));
     }
 
-    changeLanguage() {
-        this.loadLanguage();
-        setTimeout(() => {
-            this.bruteforce();
-        }, 200);
+    async changeLanguage() {
+        await this.loadLanguage();
+        this.bruteforce();
     }
 
     bruteforce() {
-        if (this.input().length) {
-            this.clearResult();
-            [...Array(this.language.alphabet.length - 1).keys()].forEach(e => {
-                const result = this.action(this.input(), e + 1, true, this.language);
+        if (this.input.length) {
+            this.emptyResult();
+            [...Array(this.alphabet.alphabet.length - 1).keys()].forEach(e => {
+                const result = this.action(this.input, e + 1, true, this.alphabet);
                 this.results.push(`mod ${e + 1}: ${result}`);
             });
-            this.output();
+            this.setOutput();
         }
     }
 
-    clearResult() {
+    emptyResult() {
         this.outputElement.innerHTML = '';
         this.results = [];
     }
 
-    output() {
+    setOutput() {
         this.results.forEach(e => {
             const el = document.createElement('p');
             el.innerText = e;

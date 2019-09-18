@@ -28,13 +28,9 @@ export default class BaseComponent {
          */
         this.outputElement = this.container.querySelector('.encryption-result');
 
-        if (this.languageElement.value) {
-            this.loadLanguage();
-        }
+        if (this.languageElement.value) this.loadLanguage();
 
-        if (bindListeners) {
-            this.bindListeners();
-        }
+        if (bindListeners) this.bindListeners();
     }
 
     bindListeners() {
@@ -44,18 +40,16 @@ export default class BaseComponent {
         this.languageElement.addEventListener('change', this.loadLanguage.bind(this));
     }
 
-    loadLanguage() {
-        loadJSON('/public/js/lib/alphabets.json').then(language => {
-            this.language = language[this.language];
-            this.processAction();
-        });
+    async loadLanguage() {
+        const alphabets = await loadJSON('/public/js/lib/alphabets.json');
+        this.alphabet = alphabets[this.language];
+        this.processAction();
     }
 
     processAction() {
-        this.input(this.input().toLowerCase());
+        this.input = this.input.toLowerCase();
 
-        const result = this.action(this.input(), this.key, this.decrypt, this.language);
-        this.output(result);
+        this.output = this.action(this.input, this.key, this.decrypt, this.alphabet);
     }
 
     get input() {
