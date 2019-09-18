@@ -18,19 +18,18 @@ export default class CaesarBruteForceComponent extends BaseComponent {
     changeLanguage() {
         this.loadLanguage();
         setTimeout(() => {
-            console.log(this.language);
             this.bruteforce();
         }, 200);
     }
 
     bruteforce() {
-        if (this.getInputText().length) {
+        if (this.input().length) {
             this.clearResult();
             [...Array(this.language.alphabet.length - 1).keys()].forEach(e => {
-                const result = this.action(this.getInputText(), e + 1, true, this.language);
+                const result = this.action(this.input(), e + 1, true, this.language);
                 this.results.push(`mod ${e + 1}: ${result}`);
             });
-            this.setOutputText();
+            this.output();
         }
     }
 
@@ -39,7 +38,7 @@ export default class CaesarBruteForceComponent extends BaseComponent {
         this.results = [];
     }
 
-    setOutputText() {
+    output() {
         this.results.forEach(e => {
             const el = document.createElement("p");
             el.innerText = e;
