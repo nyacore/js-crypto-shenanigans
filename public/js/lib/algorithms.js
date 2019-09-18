@@ -8,15 +8,15 @@
  * 
  */
 export function caesarEncrypt(text, shift, decrypt, { alphabet }) {
-    let result = "";
+    let result = '';
 
-    text.split("").forEach(e => {
+    text.split('').forEach(e => {
         if (alphabet.indexOf(e) == -1) {
             result = 'Выбран неверный алфавит либо в сообщении чередуются раскладки';
             return;
         }
 
-        if ([".", ",", " ", "?", "!"].includes(e)) {
+        if (['.', ',', ' ', '?', '!'].includes(e)) {
             result += e;
         } else {
             let index;
@@ -42,7 +42,7 @@ export function caesarEncrypt(text, shift, decrypt, { alphabet }) {
 export function viegenereEncrypt(text, key, decrypt, { alphabet, table }) {
 
     if (key.indexOf(' ') != -1 || text.indexOf(' ') != -1) {
-        return 'Ни ключ, ни сообщение не должны содержать пробелы'
+        return 'Ни ключ, ни сообщение не должны содержать пробелы';
     }
 
     if (!key.length) {

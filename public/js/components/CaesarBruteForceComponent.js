@@ -1,4 +1,4 @@
-import BaseComponent from "./BaseComponent.js";
+import BaseComponent from './BaseComponent.js';
 
 export default class CaesarBruteForceComponent extends BaseComponent {
     constructor(container, action) {
@@ -9,10 +9,10 @@ export default class CaesarBruteForceComponent extends BaseComponent {
     }
 
     bindListeners() {
-        this.inputElement.addEventListener("keyup", this.bruteforce.bind(this));
-        this.inputElement.addEventListener("change", this.bruteforce.bind(this));
+        this.inputElement.addEventListener('keyup', this.bruteforce.bind(this));
+        this.inputElement.addEventListener('change', this.bruteforce.bind(this));
 
-        this.languageElement.addEventListener("change", this.changeLanguage.bind(this));
+        this.languageElement.addEventListener('change', this.changeLanguage.bind(this));
     }
 
     changeLanguage() {
@@ -34,13 +34,13 @@ export default class CaesarBruteForceComponent extends BaseComponent {
     }
 
     clearResult() {
-        this.outputElement.innerHTML = "";
+        this.outputElement.innerHTML = '';
         this.results = [];
     }
 
     output() {
         this.results.forEach(e => {
-            const el = document.createElement("p");
+            const el = document.createElement('p');
             el.innerText = e;
             this.outputElement.appendChild(el);
         });

@@ -1,7 +1,7 @@
-import BaseComponent from "./components/BaseComponent.js";
-import CaesarBruteForceComponent from "./components/CaesarBruteForceComponent.js";
+import BaseComponent from './components/BaseComponent.js';
+import CaesarBruteForceComponent from './components/CaesarBruteForceComponent.js';
 
-import { viegenereEncrypt, caesarEncrypt } from "./lib/algorithms.js";
+import { viegenereEncrypt, caesarEncrypt } from './lib/algorithms.js';
 
 (async () => {
 

@@ -1,6 +1,4 @@
-import {
-    loadJSON
-} from '../lib/utils.js';
+import { loadJSON } from '../lib/utils.js';
 
 export default class BaseComponent {
     constructor(container, action, bindListeners = true, decrypt = false) {
@@ -50,7 +48,7 @@ export default class BaseComponent {
         loadJSON('/public/js/lib/alphabets.json').then(language => {
             this.language = language[this.language];
             this.processAction();
-        })
+        });
     }
 
     processAction() {
